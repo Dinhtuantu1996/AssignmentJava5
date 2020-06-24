@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hóa đơn bán hàng</title>
+    <link type="text/css" href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link type="text/css" href="../css/theme.css" rel="stylesheet">
+    <link type="text/css" href="../img/icons/css/font-awesome.css" rel="stylesheet">
+    <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
+          rel='stylesheet'>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+                <i class="icon-reorder shaded"></i>
+            </a>
+
+            <a class="brand" href="/admin/index">
+                PH09235
+            </a>
+
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+                <ul class="nav nav-icons">
+                    <li class="active"><a href="#">
+                        <i class="icon-envelope"></i>
+                    </a></li>
+                    <li><a href="#">
+                        <i class="icon-eye-open"></i>
+                    </a></li>
+                    <li><a href="#">
+                        <i class="icon-bar-chart"></i>
+                    </a></li>
+                </ul>
+
+                <form class="navbar-search pull-left input-append" action="#">
+                    <input type="text" class="span3">
+                    <button class="btn" type="button">
+                        <i class="icon-search"></i>
+                    </button>
+                </form>
+
+                <ul class="nav pull-right">
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Kéo xuống
+                        <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Item No. 1</a></li>
+                            <li><a href="#">Don't Click</a></li>
+                            <li class="divider"></li>
+                            <li class="nav-header">Example Header</li>
+                            <li><a href="#">A Separated link</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Trợ giúp </a></li>
+                    <li class="nav-user dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="../img/user1.png" class="nav-avatar"/>
+                        <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Tài khoản</a></li>
+                            <li><a href="#">Chỉnh sửa trang cá nhân</a></li>
+                            <li><a href="#">Cài đặt</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/logout">Đăng xuất</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.nav-collapse -->
+        </div>
+    </div><!-- /navbar-inner -->
+</div><!-- /navbar -->
+
+
+<div class="wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="span3">
+                <div class="sidebar">
+                    <ul class="widget widget-menu unstyled">
+                        <li class="active"><a href="/admin/index"><i class="menu-icon icon-dashboard"></i>Trang chủ
+                        </a></li>
+                        <li><a href="#"><i class="menu-icon icon-bullhorn"></i>Bản tin </a>
+                        </li>
+                        <li><a href="/admin/mail"><i class="menu-icon icon-inbox"></i>Hộp thư <b
+                                class="label green pull-right">
+                            11</b> </a></li>
+                        <li><a href="/admin/hoadon"><i class="menu-icon icon-tasks"></i>Hóa đơn <b class="label orange pull-right">
+                            19</b> </a></li>
+                    </ul>
+                    <!--/.widget-nav-->
+
+
+                    <ul class="widget widget-menu unstyled">
+                        <li><a href="/admin/themsanpham"><i class="menu-icon icon-bold"></i> Thêm điện thoại </a></li>
+                        <li><a href="/admin/danhsachsanpham"><i class="menu-icon icon-book"></i>Danh sách điện thoại
+                        </a></li>
+                        <li><a href="/admin/themloaisp"><i class="menu-icon icon-paste"></i>Thêm hãng điện thoại </a>
+                        </li>
+                        <li><a href="/admin/danhsachloaisp"><i class="menu-icon icon-table"></i>Danh sách hãng điện
+                            thoại </a></li>
+                        <li><a href="#"><i class="menu-icon icon-bar-chart"></i>Doanh thu </a></li>
+                    </ul>
+                    <!--/.widget-nav-->
+                    <ul class="widget widget-menu unstyled">
+                        <li><a class="collapsed" data-toggle="collapse" href="#togglePages"><i
+                                class="menu-icon icon-cog">
+                        </i><i class="icon-chevron-down pull-right"></i><i class="icon-chevron-up pull-right">
+                        </i>Tài khoản </a>
+                            <ul id="togglePages" class="collapse unstyled">
+                                <li><a href="/admin/themtaikhoan"><i class="icon-inbox"></i>Thêm tài khoản </a></li>
+                                <li><a href="/admin/danhsachcttaikhoan"><i class="icon-inbox"></i>Thông tin cá nhân tài
+                                    khoản</a></li>
+                                <li><a href="/admin/danhsachtaikhoan"><i class="icon-inbox"></i>Danh sách tài khoản </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="/logout"><i class="menu-icon icon-signout"></i>Thoát </a></li>
+                    </ul>
+                </div>
+                <!--/.sidebar-->
+            </div><!--/.sidebar-->
+
+
+            <div class="span9">
+                <div class="content">
+
+
+                    <div class="module">
+                        <div class="module-head">
+                            <h3>Chi tiết đơn hàng</h3>
+                        </div>
+
+
+                        <div class="module-body table">
+
+
+                            <th:block th:unless="${#lists.isEmpty(listhoadonct)}">
+                                <table style="font-size: 12px" cellpadding="0" cellspacing="0" border="0"
+                                       class="datatable-1 table table-bordered table-striped	 display" width="100%">
+                                    <thead>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Mã hóa đơn</th>
+                                        <th>Mã điện thoại</th>
+                                        <th>Số lượng mua</th>
+                                        <th>Tổng tiền</th>
+                                        <th>Chú thích</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <tr class="odd gradeX" th:each="sanpham,iterStat : ${listhoadonct}">
+                                        <th scope="row" th:text="${iterStat.count}"></th>
+                                        <td th:text="${sanpham.getMahoadon()}"></td>
+                                        <td th:text="${sanpham.getMasanpham()}"></td>
+                                        <td th:text="${sanpham.getSoluong()}"></td>
+                                        <td th:text="${sanpham.getTongtien()}"></td>
+                                        <td th:text="${sanpham.getGhichu()}"></td>
+
+                                    </tr>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Mã hóa đơn</th>
+                                        <th>Mã điện thoại</th>
+                                        <th>Số lượng mua</th>
+                                        <th>Tổng tiền</th>
+                                        <th>Chú thích</th>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </th:block>
+                        </div>
+
+
+                    </div><!--/.module-->
+
+                    <br/>
+
+                </div><!--/.content-->
+            </div><!--/.span9-->
+        </div>
+    </div><!--/.container-->
+</div><!--/.wrapper-->
+
+<div class="footer">
+    <div class="container">
+
+
+        <b class="copyright">&copy; 2020 PH09235 - ShopWeb.com </b> All rights reserved.
+    </div>
+</div>
+
+<script src="../js/jquery-1.9.1.min.js"></script>
+<script src="../js/jquery-ui-1.10.1.custom.min.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script src="../js/datatables/jquery.dataTables.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.datatable-1').dataTable();
+        $('.dataTables_paginate').addClass("btn-group datatable-pagination");
+        $('.dataTables_paginate > a').wrapInner('<span />');
+        $('.dataTables_paginate > a:first-child').append('<i class="icon-chevron-left shaded"></i>');
+        $('.dataTables_paginate > a:last-child').append('<i class="icon-chevron-right shaded"></i>');
+    });
+</script>
+</body>

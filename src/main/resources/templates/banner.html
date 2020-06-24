@@ -1,0 +1,47 @@
+
+
+
+
+<!DOCTYPE html>
+<html xmlns:th="">
+<head>
+
+
+</head>
+
+<body th:fragment="banner">
+	<header>
+
+		<div class="wrap">
+			<!----start-Header---->
+			<div class="header">
+				<div class="search-bar">
+					<form>
+						<input type="text"><input type="submit" value="Search" />
+					</form>
+				</div>
+				<div class="clear"></div>
+				<div class="header-top-nav">
+					<ul>
+						<li th:if="${session.username != null}"><a href="#"><span>Chào bạn&nbsp;&nbsp;<a style="color: crimson" th:text="${session.username}"></a> </span ></a><label>
+								&nbsp;
+						</label></li>
+
+						<li th:if="${session.username == null}" ><a href="/login">Đăng
+								nhập</a></li>
+						<li th:if="${session.username == null}" ><a href="/register">Đăng
+								kí</a></li>
+						<li th:if="${session.username != null}" ><a th:href="@{/showaccount?id={id}(id=${session.username})}">Quản lý tài khoản</a></li>
+						<li th:if="${session.username != null}" ><a href="/logout">Đăng
+							xuất</a></li>
+
+
+					</ul>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</header>
+</body>
+</html>
